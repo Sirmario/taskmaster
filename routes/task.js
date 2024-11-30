@@ -2,10 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Task = require("../model/task");
 const jwt = require("jsonwebtoken");
-const isAuth = require("../middleware/authMiddleware");
 // Read
-router.get("/all", isAuth, async (req, res) => {
-  console.log(req.user);
+router.get("/all", async (req, res) => {
   try {
     const allTask = await Task.find();
     res.json(allTask);
