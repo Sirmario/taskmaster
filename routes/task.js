@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Task = require("../model/task");
-const jwt = require("jsonwebtoken");
 // Read
 router.get("/all", async (req, res) => {
   try {

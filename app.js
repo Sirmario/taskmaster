@@ -4,6 +4,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const taskRoute = require("./routes/task");
+const Db_URL = require("./config/keys").mongooseURI;
 app.use(express.json());
 app.use(
   cors({
@@ -12,7 +13,7 @@ app.use(
   })
 );
 mongoose
-  .connect(process.env.DATABASE_URL)
+  .connect(Db_URL)
   .then((conn) => {
     if (conn != null) console.log("connection established.");
   })
